@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -11,5 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 public class AppUser {
     private String id,name,password,imageId;
-    List<String> appointmentList;
+    List<String> appointmentsIds = new ArrayList<>();
+    private Role role;
+
+    public AppUser(String id, String name, String password, Role role) {
+    }
 }
