@@ -1,4 +1,4 @@
-package com.guide.me.backend.appointment;
+package com.guide.me.backend.appuser;
 
 public enum Role {
     ADMIN,
