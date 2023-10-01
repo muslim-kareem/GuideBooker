@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(c -> c.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(c -> {
-                    c.requestMatchers(HttpMethod.POST, "/api/place-holder").authenticated();
+                    c.requestMatchers(HttpMethod.POST, "/api/user").permitAll();
 //                    c.requestMatchers(HttpMethod.PUT, "/api/place-holder/**").authenticated();
 //                    c.requestMatchers(HttpMethod.DELETE, "/api/place-holder/**").hasRole(Role.ADMIN.toString());
 //                    c.anyRequest().permitAll();
