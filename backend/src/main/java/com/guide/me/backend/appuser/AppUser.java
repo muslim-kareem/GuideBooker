@@ -15,6 +15,9 @@ public class AppUser {
     List<String> appointmentsIds = new ArrayList<>();
     private Role role;
 
-    public AppUser(String id, String name, String password, Role role) {
+    public AppUser(String name, String password, Role role) {
+        this.name = name;
+        this.password = password;
+        this.role = role;
     }
 }
