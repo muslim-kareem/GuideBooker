@@ -29,18 +29,18 @@ public class AppUserService implements UserDetailsService {
 
     public AppUser register(AppUser newAppUser) {
         Argon2PasswordEncoder passwordEncoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
-        AppUser appUser = null;
+        AppUser appUser;
         if (this.appUserRepo.findAppUserByName(newAppUser.getName()).isEmpty()) {
             appUser = new AppUser(
-                    null,
                     newAppUser.getName(),
                     passwordEncoder.encode(newAppUser.getPassword()),
                     Role.BASIC
             );
+
         }else {
             throw new RuntimeException("The name is already exist please chose another name. ");
         }
-        return this.getAppUserWithoutPassword(appUserRepo.save(appUser));
+        return this.getAppUserWithoutPassword(this.appUserRepo.save(appUser));
     }
 
     public AppUser getAppUserWithoutPassword(AppUser appUser) {
